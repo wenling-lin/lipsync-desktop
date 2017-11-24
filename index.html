@@ -3,13 +3,15 @@
 
 <head>
   <meta charset="UTF-8">
+  <script src="LS.js"></script>
+  <link href="LS.css" rel="stylesheet" type="text/css">
   <title>LipSync Settings</title>
 </head>
 
-<body>
+<body class="navigation", background = "pattern_background_light_lines_waves_surface_50942_1680x1050.jpg">
   <div id="upload_message"></div>
   <form>
-    <h1>LipSync Settings</h1>
+    <h1><center>LipSync User Menu</center></h1>
     <section>
       <h2>Pressure sensors</h2>
       <p>
@@ -24,6 +26,16 @@
         </label>
         <input type="text" id="puff_threshold" name="puff_threshold" value="10">
       </p>
+
+<p><span><br>Sip/Puff Reverse: </span>
+  <label class="switch">
+    <input type="checkbox" onclick="togglefunction()">
+    <span class="slider round"></span>
+  </label>
+</p>
+
+
+<p>
     </section>
     <section>
       <h2>Joystick sensors</h2>
@@ -59,8 +71,30 @@
           <label for="cursor_speed">
             <span>Speed: </span>
           </label>
-          <input type="text" id="cursor_speed" name="cursor_speed">
-        </p>
+          <input type="text" id="cursor_speed" name="cursor_speed" value = "10">
+
+<button id = "cs1" onclick="mouseFunction1()">Speed Up</button>
+<button id = "cs2" onclick="mouseFunction2()">Speed Down</button>
+<button id = "undo1" onclick="undoSpeed()">Undo</button>
+
+</p>
+
+<p><br><center><button id = "cs3" onclick="mouseFunction3()">Reset Device</button></center></span></p>
+<div class = "orientation">
+<p><span><br>Device Orientation: </span>
+
+<br><br>
+<canvas id="myCanvas" width="240" height="240"
+style="border:1px solid #d3d3d3;">
+
+</canvas>
+<button id = "cs4" onclick="mouseFunction4()">Set Orientation</button>
+
+</div>
+
+
+
+
       </section>
       <section>
         <p>
@@ -70,7 +104,7 @@
   </form>
   <script>
     // You can also require other files to run in this process
-    require('./renderer.js')
+    // require('./renderer.js')
   </script>
 </body>
 
